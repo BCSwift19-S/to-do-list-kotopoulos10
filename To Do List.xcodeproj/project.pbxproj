@@ -12,6 +12,7 @@
 		D71C068922111CE000700A7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D71C068722111CE000700A7D /* Main.storyboard */; };
 		D71C068B22111CE200700A7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D71C068A22111CE200700A7D /* Assets.xcassets */; };
 		D71C068E22111CE200700A7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D71C068C22111CE200700A7D /* LaunchScreen.storyboard */; };
+		D71C06962211236700700A7D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C06952211236700700A7D /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D71C068A22111CE200700A7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D71C068D22111CE200700A7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D71C068F22111CE200700A7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D71C06952211236700700A7D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				D71C068322111CE000700A7D /* AppDelegate.swift */,
 				D71C068522111CE000700A7D /* ViewController.swift */,
 				D71C068722111CE000700A7D /* Main.storyboard */,
+				D71C06952211236700700A7D /* DetailViewController.swift */,
 				D71C068A22111CE200700A7D /* Assets.xcassets */,
 				D71C068C22111CE200700A7D /* LaunchScreen.storyboard */,
 				D71C068F22111CE200700A7D /* Info.plist */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D71C06962211236700700A7D /* DetailViewController.swift in Sources */,
 				D71C068622111CE000700A7D /* ViewController.swift in Sources */,
 				D71C068422111CE000700A7D /* AppDelegate.swift in Sources */,
 			);
