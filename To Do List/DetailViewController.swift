@@ -9,13 +9,24 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    var toDoItem: String?
 
     @IBOutlet weak var toDoField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let toDoItem = toDoItem{
+            toDoField.text = toDoItem
+        }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UnwindFromSave"{
+            toDoItem = toDoField.text
+        }
+    }
     
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
         let isPresentingInAddMode = presentingViewController is UINavigationController
