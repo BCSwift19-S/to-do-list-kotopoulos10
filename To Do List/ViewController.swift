@@ -17,6 +17,8 @@ class ViewController: UIViewController  {
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     var toDoArray = ["Learn Swift", "Build Apps" , "Change the World"]
     
+    var toDoNotesArray = ["I need to do this soon", "Don't spoil my secret app!" , "One step at a time"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class ViewController: UIViewController  {
             let destinationViewControler = segue.destination as! DetailViewController
             let index = tableView.indexPathForSelectedRow!.row
             destinationViewControler.toDoItem = toDoArray[index]
+            destinationViewControler.toDoNoteItem = toDoNotesArray[index]
         } else {
             if let selectedPath = tableView.indexPathForSelectedRow{
                 tableView.deselectRow(at: selectedPath, animated: false)
@@ -40,10 +43,12 @@ class ViewController: UIViewController  {
         let sourceViewController = segue.source as! DetailViewController
         if let indexPath = tableView.indexPathForSelectedRow{
             toDoArray[indexPath.row] = sourceViewController.toDoItem!
+            toDoNotesArray[indexPath.row] = sourceViewController.toDoNoteItem!
             tableView.reloadRows(at: [indexPath], with: .automatic)
         } else {
             let newIndexPath = IndexPath(row: toDoArray.count, section: 0)
             toDoArray.append(sourceViewController.toDoItem!)
+            toDoNotesArray.append(sourceViewController.toDoNoteItem!)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
@@ -71,19 +76,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = toDoArray[indexPath.row]
+        cell.detailTextLabel?.text = toDoNotesArray[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             toDoArray.remove(at: indexPath.row)
+            toDoNotesArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade )
         }
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let itemToMove = toDoArray[sourceIndexPath.row]
+        let noteToMove = toDoNotesArray[sourceIndexPath.row]
         toDoArray.remove(at: sourceIndexPath.row)
+        toDoNotesArray.remove(at: sourceIndexPath.row)
         toDoArray.insert(itemToMove, at: destinationIndexPath.row)
+        toDoNotesArray.insert(noteToMove, at: destinationIndexPath.row)
     }
 }
